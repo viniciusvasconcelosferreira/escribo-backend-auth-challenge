@@ -160,4 +160,4 @@ desempenho e segurança.
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT.
+Este projeto é distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
