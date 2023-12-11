@@ -1,0 +1,21 @@
+{
+  "name": "escribo-backend-auth-challenge",
+  "version": "1.0.0",
+  "description": "A RESTful authentication API for user registration, sign-in, and user information retrieval, built with Express for the Escribo backend technical challenge.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": "https://github.com/viniciusvasconcelosferreira/escribo-backend-auth-challenge.git",
+  "author": "Vinicius Vasconcelos Ferreira",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "nodemon": "^3.0.2",
+    "validator": "^13.11.0"
+  }
+}
