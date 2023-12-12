@@ -1,15 +1,10 @@
 const mongoose = require('mongoose');
 
 const dbConfig = {
-  url: process.env.MONGO_REMOTE_URL || 'mongodb://localhost:27017/nome-do-banco',
-  options: {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  },
+  url: process.env.NODE_ENV !== 'development' ? process.env.MONGO_REMOTE_URL : process.env.MONGO_LOCAL_URL,
 };
 
-mongoose.connect(dbConfig.url, dbConfig.options);
+mongoose.connect(dbConfig.url);
 
 const db = mongoose.connection;
 

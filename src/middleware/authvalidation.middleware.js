@@ -5,10 +5,12 @@ const validaRegistraUsuario = (req, res, next) => {
     'nome': 'required|string|min:3',
     'email': 'required|email',
     'senha': 'required|min:6',
-    'telefones': 'required|array',
-    'telefones.*.ddd': 'required|numeric|digits:2',
-    'telefones.*.numero': 'required|numeric|max:9',
+    'telefones': 'array',
+    'telefones.*.ddd': 'required|integer|min:1',
+    'telefones.*.numero': 'required|integer|min:8',
   };
+
+  console.log(req.body);
 
   const validation = new Validator(req.body, rules);
 

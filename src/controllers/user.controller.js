@@ -5,11 +5,20 @@ const registra = asyncHandler(async (req, res) => {
   const { nome, email, senha, telefones } = req.body;
 
   try {
-    const novoUsuario = await userService.registraUsuario({ nome, email, senha, telefones });
+    const { usuario, token } = await userService.registraUsuario({ nome, email, senha, telefones });
 
     return res.status(201).json({
       mensagem: 'Usuário criado com sucesso!',
-      resultado: novoUsuario,
+      resultado: {
+        id: usuario.id,
+        email: usuario.email,
+        nome: usuario.nome,
+        telefones: usuario.telefones,
+        data_criacao: usuario.data_criacao,
+        data_atualizacao: usuario.data_atualizacao,
+        ultimo_login: usuario.ultimo_login,
+        token: token,
+      },
       sucesso: true,
     });
   } catch (error) {

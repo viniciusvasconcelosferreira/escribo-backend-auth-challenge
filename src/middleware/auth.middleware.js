@@ -11,17 +11,17 @@ module.exports = (req, res, next) => {
     req.userData = jwt.verify(token, process.env.JWT_SECRET);
     next();
   } catch (err) {
-    let errorMessage = 'Unauthorized';
+    let errorMessage = 'Não autorizado';
 
     if (err.name === 'JsonWebTokenError') {
-      errorMessage = 'Invalid token';
+      errorMessage = 'Token inválido';
     } else if (err.name === 'TokenExpiredError') {
-      errorMessage = 'Token expired';
+      errorMessage = 'Sessão inválida';
     }
 
     return res.status(401).json({
-      mensagem: errorMessage,
       tipoErro: err.name,
+      mensagem: errorMessage,
     });
   }
 };

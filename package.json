@@ -30,6 +30,7 @@
     "validatorjs": "^3.22.1"
   },
   "devDependencies": {
+    "express-list-endpoints": "^6.0.0",
     "sucrase": "^3.34.0"
   }
 }
