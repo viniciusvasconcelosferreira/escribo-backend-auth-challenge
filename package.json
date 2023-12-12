@@ -4,13 +4,15 @@
   "description": "A RESTful authentication API for user registration, sign-in, and user information retrieval, built with Express for the Escribo backend technical challenge.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server",
-    "dev": "nodemon --exec sucrase-node server.js"
+    "start": "nodemon app",
+    "dev": "nodemon --exec sucrase-node app.js",
+    "generate-token": "if [ -z \"$JWT_SECRET\" ]; then echo 'JWT_SECRET=$(node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\")' >> .env; fi"
   },
   "repository": "https://github.com/viniciusvasconcelosferreira/escribo-backend-auth-challenge.git",
   "author": "Vinicius Vasconcelos Ferreira",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -18,11 +20,14 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
-    "validator": "^13.11.0"
+    "uuid": "^9.0.1",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
     "sucrase": "^3.34.0"
