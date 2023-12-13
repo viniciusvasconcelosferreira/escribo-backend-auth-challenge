@@ -20,6 +20,8 @@ desempenho e segurança.
 
 - **Express:** Um framework web rápido, não opinativo e minimalista para Node.js. (`^4.17.1`)
 - **JavaScript**
+- **Jest**
+- **MongoDB**
 - **Node.js**
 - **Yarn**
 
@@ -134,7 +136,7 @@ desempenho e segurança.
 3. Instale as dependências:
 
    ```bash
-   npm install
+   yarn
    ```
 
 4. Defina as configurações no arquivo .env:
@@ -142,21 +144,68 @@ desempenho e segurança.
     ```dotenv
     EXPRESS_ENV=development
     PORT=5000
+    MONGO_REMOTE_URL=MONGO_REMOTE_URL=mongodb+srv://<username>:<password>@<name_of_cluster>.imvxrxf.mongodb.net/?retryWrites=true&w=majority
+    JWT_SECRET=seu_jwt_secreto_gerado
+    MONGO_LOCAL_URL=mongodb://localhost:27017/nome-do-seu-banco-local
+    MONGO_LOCAL_TEST_URL=mongodb://localhost:27017/nome-do-seu-banco-local-de-testes
     ```
-
-4. Inicie o servidor com o nodemon:
+   Lembrando que o `JWT_SECRET` pode ser gerado usando o comando:
+   
+   ```bash
+   yarn generate-token
+   ```
+5. Inicie o servidor com o nodemon:
 
    ```bash
-   npm start
+   yarn start
    ```
 
 6. Acesse a API em [http://localhost:5000](http://localhost:5000).
 
 ## Dependências Principais
 
-- **Express:** Um framework web rápido, não opinativo e minimalista para Node.js. (`^4.17.1`)
-- **MongoDB e Mongoose:** Utilizados para a persistência de dados.
 - **Body Parser, Dotenv, Nodemon, Validator:** Dependências adicionais para funcionalidades específicas.
+- **Express:** Um framework web rápido, não opinativo e minimalista para Node.js. (`^4.17.1`)
+- **Jest:** Framework de teste para JavaScript.
+- **MongoDB e Mongoose:** Utilizados para a persistência de dados.
+
+## Testes Unitários
+
+Este projeto utiliza o framework Jest para realizar testes unitários. Os testes estão localizados na pasta `__tests__` no diretório `src`. Abaixo estão os principais comandos para executar os testes:
+
+### 1. Instalar Dependências de Desenvolvimento
+
+Antes de executar os testes, certifique-se de instalar as dependências de desenvolvimento necessárias. Use o seguinte comando:
+
+```bash
+yarn install --dev
+```
+
+### 2. Executar Testes Unitários
+
+Para executar todos os testes unitários, utilize o seguinte comando:
+
+```bash
+yarn test
+```
+
+Se preferir, você também pode usar o modo de observação para executar os testes automaticamente sempre que ocorrerem alterações no código:
+
+```bash
+yarn test:watch
+```
+
+### Observações:
+
+- Certifique-se de que o servidor não está em execução antes de executar os testes para garantir que as portas não estejam ocupadas.
+
+- Se precisar gerar um token JWT para testes, utilize o seguinte comando:
+
+  ```bash
+  yarn generate-token
+  ```
+
+- Certifique-se de configurar corretamente as variáveis de ambiente no arquivo `.env` antes de executar os testes.
 
 ## Licença
 
