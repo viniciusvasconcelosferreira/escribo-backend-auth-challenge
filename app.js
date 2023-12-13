@@ -8,7 +8,7 @@ const userRoutes = require('./src/routes/user.route');
 app.use(express.json());
 app.use(userRoutes);
 
-app.get('/welcome', function(req, res) {
+app.get('/', function(req, res) {
   res.send('Bem-Vindo ao Express!');
 });
 
