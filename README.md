@@ -43,7 +43,7 @@ desempenho e segurança.
 ## Funcionalidades
 
 1. **Cadastro de Usuários (Sign Up):**
-    - Endpoint: `/signup`
+    - Endpoint: `/register`
     - Método: **POST**
     - Input:
        ```json
@@ -72,7 +72,7 @@ desempenho e segurança.
        ```
 
 2. **Autenticação de Usuários (Sign In):**
-    - Endpoint: `/signin`
+    - Endpoint: `/login`
     - Método: **POST**
     - Input:
        ```json
