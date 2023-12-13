@@ -10,8 +10,6 @@ const validaRegistraUsuario = (req, res, next) => {
     'telefones.*.numero': 'required|integer|min:8',
   };
 
-  console.log(req.body);
-
   const validation = new Validator(req.body, rules);
 
   if (validation.fails()) {
